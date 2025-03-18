@@ -13,7 +13,7 @@
 ---
 
 ## 📦 **Package on PyPI**
-👉 [**Visit the PyPI Page**](https://pypi.org/project/songsingergenerator/0.1.0/)  
+👉 [**Visit the PyPI Page**](https://pypi.org/project/songsingergenerator/)  
 
 ---
 
