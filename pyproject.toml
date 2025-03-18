@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "songsingergenerator"
 description = "A fun Python package to generate random songs, select random singers, and find singers by name."
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name = "solapis", email = "your.email@example.com" },
 ]
