@@ -1,17 +1,18 @@
 import random
+
 collection = {
-    "rnb":{
-        "SZA":["luther", "30 For 30", "Snooze", "Kill Bill"],
-        "Babyface" : ["Every Time I close my Eyes", "Lady, Lady", "Illusions"]        
+    "rnb": {
+        "SZA": ["luther", "30 For 30", "Snooze", "Kill Bill"],
+        "Babyface": ["Every Time I Close My Eyes", "Lady, Lady", "Illusions"]
     },
-    "rock":{
-        "Pink Floyd":["Wish You Were Here", "comfortably Numb", "Time"],
-        "The Beatles":["Come Togethers", "Here Comes The Sun", "Here, There And EveryWhere"]
+    "rock": {
+        "Pink Floyd": ["Wish You Were Here", "Comfortably Numb", "Time"],
+        "The Beatles": ["Come Together", "Here Comes The Sun", "Here, There And Everywhere"]
     }
 }
 
-def addSinger(singer, genre, songs=None):
-    #note here we need to pass genre as well not only singer
+def add_singer(singer, genre, songs=None):
+    """Add a singer with songs to the collection under a specific genre."""
     if songs is None:
         songs = []
     genre = genre.lower()
@@ -21,47 +22,44 @@ def addSinger(singer, genre, songs=None):
         collection[genre][singer].extend(songs)
     else:
         collection[genre][singer] = songs
-def randomSong(genre=None):
+
+def random_song(genre=None):
+    """Return a random song from a given genre or any genre if not specified."""
     if genre:
         genre = genre.lower()
         if genre not in collection or not collection[genre]:
             return None
-        singersL = list(collection[genre].keys())
-        chosenSinger = random.choice(singersL)
-        songsL = collection[genre][chosenSinger]
-        if not songsL:
+        singers = list(collection[genre].keys())
+        chosen_singer = random.choice(singers)
+        songs = collection[genre][chosen_singer]
+        if not songs:
             return None
-        chosenSong = random.choice(songsL)
-        return (chosenSinger, chosenSong, genre)
+        return (chosen_singer, random.choice(songs), genre)
     else:
         if not collection:
             return None
-        Genres = list(collection.keys())
-        chosenGenre = random.choice(Genres)
-        #call itself but pass the genre
-        return randomSong(chosenGenre)
-def randomSinger(genre = None):
+        chosen_genre = random.choice(list(collection.keys()))
+        return random_song(chosen_genre)
+
+def random_singer(genre=None):
+    """Return a random singer from a given genre or any genre if not specified."""
     if genre:
         genre = genre.lower()
         if genre not in collection or not collection[genre]:
             return None
-        singerL = list(collection[genre].keys())
-        return random.choice(singerL)
+        return random.choice(list(collection[genre].keys()))
     else:
         if not collection:
             return None
-        Genres = list(collection.keys())
-        chosenGenre = random.choice(Genres)
-        return randomSinger(chosenGenre)
-def findSinger(inWord):
-    inWord = inWord.lower()
+        chosen_genre = random.choice(list(collection.keys()))
+        return random_singer(chosen_genre)
+
+def find_singer(keyword):
+    """Find singers whose name contains the given keyword (case insensitive)."""
+    keyword = keyword.lower()
     result = []
     for genre, singers in collection.items():
         for singer in singers.keys():
-            if inWord in singer.lower():
+            if keyword in singer.lower():
                 result.append((singer, genre))
     return result
-    
-        
-        
-    
