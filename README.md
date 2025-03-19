@@ -30,25 +30,25 @@ Here's how you can import and use the package in your Python project:
 
 ### ➡️ **Importing the package:**
 ```python
-from songsingergenerator import generator
+from songsingergenerator import music
 ```
 
 ### ➡️ **Example Code:**
 Example for adding a new singer and song:
 ```python
-from songsingergenerator.generator import addSinger, randomSong, randomSinger, findSinger
+from songsingergenerator.music import add_singer, random_song, random_singer, find_singer
 
 # Add a singer and their songs
-addSinger("Adele", "pop", ["Hello", "Someone Like You", "Rolling in the Deep"])
+add_singer("Adele", "pop", ["Hello", "Someone Like You", "Rolling in the Deep"])
 
 # Get a random song from the 'pop' genre
-print(randomSong("pop"))
+print(random_song("pop"))
 
 # Get a random singer from the 'pop' genre
-print(randomSinger("pop"))
+print(random_singer("pop"))
 
 # Find a singer containing the word 'Adele'
-print(findSinger("Adele"))
+print(find_singer("Adele"))
 ```
 
 ---
@@ -56,10 +56,10 @@ print(findSinger("Adele"))
 ## 🛠️ **Available Functions**
 | Function | Description | Example |
 |----------|-------------|---------|
-| `addSinger(singer, genre, songs)` | Adds a new singer and their songs to the collection. | `addSinger("Adele", "pop", ["Hello"])` |
-| `randomSong(genre=None)` | Returns a random song from a specific genre (or any genre if none is specified). | `randomSong("pop")` |
-| `randomSinger(genre=None)` | Returns a random singer from a specific genre. | `randomSinger("pop")` |
-| `findSinger(inWord)` | Searches for singers whose names contain the specified substring. | `findSinger("Adele")` |
+| `add_singer(singer, genre, songs=None)` | Adds a new singer and their songs to the collection. | `add_singer("Adele", "pop", ["Hello"])` |
+| `random_song(genre=None)` | Returns a random song from a specific genre (or any genre if none is specified). | `random_song("pop")` |
+| `random_singer(genre=None)` | Returns a random singer from a specific genre. | `random_singer("pop")` |
+| `find_singer(keyword)` | Searches for singers whose names contain the specified substring. | `find_singer("Adele")` |
 
 ---
 
