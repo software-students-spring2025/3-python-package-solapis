@@ -26,15 +26,15 @@ jobs:
         run: pip install pipenv
 
       - name: Set Python version for Pipenv
-        run: pipenv --python $(which python)
+        run: pipenv --python $(which python3)
 
       - name: Install dependencies using Pipenv
         run: |
-          pipenv install --dev
+          pipenv install --dev --clear
           pipenv run pip install -e .
 
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/src" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
 
       - name: Run tests with pytest
         run: pipenv run pytest test/
