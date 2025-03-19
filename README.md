@@ -1,7 +1,7 @@
 
 # 🎵 Song Singer Generator
 
-[![The latest build/test workflow run](https://github.com/software-students-spring2025/3-python-package-solapis/actions/workflows/ci.yml/badge.svg)](https://github.com/software-students-spring2025/3-python-package-solapis/actions/workflows/ci.yml) 
+[![CI](https://github.com/software-students-spring2025/3-python-package-solapis/actions/workflows/ci.yml/badge.svg)](https://github.com/software-students-spring2025/3-python-package-solapis/actions/workflows/ci.yml)
 
 ---
 
@@ -69,37 +69,41 @@ We welcome contributions! Here’s how to get started:
 ### 1. **Clone the repository**:
 ```bash
 git clone https://github.com/software-students-spring2025/3-python-package-solapis.git
+cd 3-python-package-solapis
 ```
 
-### 2. **Set up the virtual environment**:
-We use **Pipenv** for managing dependencies:
+---
 
-- Install Pipenv:
-```bash
-pip install pipenv
-```
+### 2. **Set up the virtual environment**  
+We use **Pipenv** for managing dependencies.
 
-- Install dependencies:
-```bash
-pipenv install --dev
-```
+- **Install Pipenv:**  
+  ```bash
+  pip install pipenv
+  ```
 
-### 3. **Activate the environment**:
-Activate the Pipenv virtual environment:
+- **Install dependencies (including build):**  
+  ```bash
+  pipenv install --dev build
+  ```
+
+### 3. **Activate the environment**  
+Activate the Pipenv virtual environment:  
 ```bash
 pipenv shell
 ```
 
-### 4. **Build the package**:
-Use `build` to create package artifacts:
+### 4. **Build the package**  
+Use `build` to create package artifacts:  
 ```bash
 pipenv run python -m build
 ```
 
-### 5. **Run tests**:
-Use `pytest` to run tests:
+### 5. **Prepare and run tests**  
+Before running tests, install the package in editable mode. Then, run tests using `pytest`:  
 ```bash
-pipenv run pytest tests/
+pipenv run pip install -e .
+pipenv run pytest test/
 ```
 
 ---
@@ -120,7 +124,7 @@ To run the project locally:
 2. Set up the virtual environment with Pipenv.
 3. Run the test suite to make sure everything is working:
 ```bash
-pipenv run pytest tests/
+pipenv run pytest test/
 ```
 
 4. Import the package and use it as described in the **How to Use** section.
