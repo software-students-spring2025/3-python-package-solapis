@@ -14,8 +14,7 @@ jobs:
         python-version: ["3.8", "3.9"]
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -26,15 +25,18 @@ jobs:
         run: pip install pipenv
 
       - name: Set Python version for Pipenv
-        run: pipenv --python $(which python3)
+        run: pipenv --python $(which python)
 
       - name: Install dependencies using Pipenv
         run: |
           pipenv install --dev --clear
           pipenv run pip install -e .
 
+      - name: Check installed packages
+        run: pipenv run pip list
+
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
 
       - name: Run tests with pytest
-        run: pipenv run python -m pytest test/
+        run: pipenv run pytest test/
